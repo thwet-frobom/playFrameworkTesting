@@ -1,0 +1,28 @@
+
+@(userForm: Form[User])
+@import helper._
+
+@import b3.vertical.fieldConstructor
+
+@main("Sign Up") {
+    
+    <h1>User Profile</h1>
+    
+    @b3.form(routes.HomeController.postProfile()) {
+        
+        <fieldset>
+            @b3.text(userForm("name"), '_label -> "User name", '_help -> "")
+            @b3.text(userForm("password"), '_label -> "Password", '_help -> "")
+            @b3.text(userForm("email"), '_label -> "Email", '_help -> "")
+           
+        </fieldset>
+        
+        
+            <input type="submit" value="Update" class="btn primary">
+             or
+            <a href="@routes.HomeController.logout()" class="btn">Log Out</a>
+
+        
+    }
+    
+}
